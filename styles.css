@@ -1,0 +1,90 @@
+:root {
+  --azulejo: #0E3B54;
+  --azulejo-claro: #1B5476;
+  --areia: #F2EFE6;
+  --areia-fraca: #A9BDC9;
+  --ocre: #E8B33C;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 12vh 7vw 10vh;
+  background: var(--azulejo);
+  color: var(--areia);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+main { max-width: 60ch; }
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 9vw, 4.6rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.apresentacao {
+  margin: 1.5rem 0 0;
+  max-width: 46ch;
+  color: var(--areia);
+}
+
+.secao {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--azulejo-claro);
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--areia-fraca);
+}
+
+dl { margin: 0; }
+
+dt {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+dd {
+  margin: 0.15rem 0 0;
+  color: var(--areia-fraca);
+}
+
+ul.contato {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.contato li { margin-bottom: 0.6rem; }
+
+a {
+  color: var(--areia);
+  text-decoration: underline;
+  text-decoration-color: var(--ocre);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+a:hover { color: var(--ocre); }
+
+a:focus-visible {
+  outline: 2px solid var(--ocre);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+footer {
+  margin-top: 4rem;
+  color: var(--azulejo-claro);
+  font-size: 0.9rem;
+}
