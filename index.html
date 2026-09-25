@@ -12,16 +12,29 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main>
-    <h1>Giovane Pereira<span class="ponto">.</span></h1>
-    <p class="cargo">Desenvolvedor em formação</p>
-    <p class="apresentacao">
-      Estudante de Desenvolvimento de Sistemas no SENAI, em Salvador. Construo aplicações
-      web em Java com MySQL e cuido da operação digital de um negócio de importados.
-    </p>
+  <aside class="lateral">
+    <a class="marca" href="#inicio">Giovane Pereira<span class="ponto">.</span></a>
+    <nav aria-label="Seções da página">
+      <a href="#inicio">Início</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </aside>
 
-    <section class="secao">
-      <h2>Com o que eu trabalho</h2>
+  <main>
+    <section id="inicio" class="secao secao-inicio">
+      <h1>Giovane Pereira<span class="ponto">.</span></h1>
+      <p class="cargo">Desenvolvedor em formação</p>
+      <p class="apresentacao">
+        Estudante de Desenvolvimento de Sistemas no SENAI, em Salvador. Construo aplicações
+        web em Java com MySQL e cuido da operação digital de um negócio de importados.
+      </p>
+    </section>
+
+    <section id="habilidades" class="secao">
+      <h2>Habilidades</h2>
       <dl>
         <dt>Back-end</dt>
         <dd>Java web: Servlets, MVC com DAO, JDBC com PreparedStatements e BCrypt</dd>
@@ -40,7 +53,7 @@
       </dl>
     </section>
 
-    <section class="secao">
+    <section id="projetos" class="secao">
       <h2>Projetos</h2>
       <dl>
         <dt><a href="https://github.com/giovanepdev/GostinhoDaPromessa">Gostinho da Promessa</a></dt>
@@ -68,7 +81,7 @@
       </dl>
     </section>
 
-    <section class="secao">
+    <section id="experiencia" class="secao">
       <h2>Experiência</h2>
       <dl>
         <dt>Suporte operacional — negócio de importados</dt>
@@ -81,8 +94,8 @@
       </dl>
     </section>
 
-    <section class="secao">
-      <h2>Onde me encontrar</h2>
+    <section id="contato" class="secao">
+      <h2>Contato</h2>
       <ul class="contato">
         <li><a href="https://github.com/giovanepdev">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/giovane-pereira-dos-santos-98b679401/">LinkedIn</a></li>
@@ -92,5 +105,48 @@
 
     <footer>Salvador, Bahia</footer>
   </main>
+
+  <script>
+    // Marca na barra lateral a seção que está visível na tela
+    const links = document.querySelectorAll('.lateral nav a');
+    const secoes = document.querySelectorAll('main section[id]');
+
+    function marcarAtivo(id) {
+      links.forEach((link) => {
+        if (link.getAttribute('href') === '#' + id) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    }
+
+    // Seção clicada no menu. Perto do fim da página ela pode não chegar ao topo da tela,
+    // então o clique vale até a pessoa rolar por conta própria.
+    let clicada = null;
+
+    document.querySelectorAll('.lateral a').forEach((link) => {
+      link.addEventListener('click', () => {
+        clicada = link.getAttribute('href').slice(1);
+        marcarAtivo(clicada);
+      });
+    });
+
+    ['wheel', 'touchstart', 'keydown'].forEach((evento) => {
+      window.addEventListener(evento, () => { clicada = null; }, { passive: true });
+    });
+
+    function atualizar() {
+      const noFim = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (noFim) return marcarAtivo(clicada || secoes[secoes.length - 1].id);
+      if (clicada) return;
+
+      let atual = secoes[0].id;
+      secoes.forEach((secao) => {
+        if (secao.getBoundingClientRect().top <= window.innerHeight * 0.4) atual = secao.id;
+      });
+      marcarAtivo(atual);
+    }
+
+    window.addEventListener('scroll', atualizar, { passive: true });
+    atualizar();
+  </script>
 </body>
 </html>
