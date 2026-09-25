@@ -1,36 +1,102 @@
 :root {
   --preto: #0B0B0E;
+  --superficie: #131318;
   --grafite: #26262D;
   --texto: #F2F0EC;
   --texto-fraco: #A3A3AD;
   --vermelho: #E5383B;
   --azul: #4C8DFF;
+  --largura-lateral: 250px;
 }
 
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 body {
   margin: 0;
-  padding: 12vh 7vw 10vh;
   background: var(--preto);
   color: var(--texto);
   font-family: "IBM Plex Sans", system-ui, sans-serif;
   font-size: 1.05rem;
   line-height: 1.6;
-  border-top: 6px solid var(--vermelho);
 }
 
-main { max-width: 60ch; }
+.ponto { color: var(--vermelho); }
+
+/* Barra lateral */
+
+.lateral {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--largura-lateral);
+  padding: 3rem 2rem;
+  background: var(--superficie);
+  border-right: 1px solid var(--grafite);
+}
+
+.marca {
+  display: block;
+  margin-bottom: 2.5rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--texto);
+  text-decoration: none;
+}
+
+.lateral nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.lateral nav a {
+  padding: 0.45rem 0 0.45rem 0.9rem;
+  border-left: 2px solid transparent;
+  color: var(--texto-fraco);
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.lateral nav a:hover { color: var(--texto); }
+
+.lateral nav a[aria-current] {
+  color: var(--texto);
+  border-left-color: var(--vermelho);
+}
+
+/* Conteúdo */
+
+main {
+  margin-left: var(--largura-lateral);
+  padding: 0 7vw 10vh;
+  max-width: calc(60ch + 14vw);
+}
+
+.secao {
+  padding-top: 4rem;
+  scroll-margin-top: 1rem;
+}
+
+.secao + .secao {
+  margin-top: 3rem;
+  border-top: 1px solid var(--grafite);
+}
+
+.secao-inicio { padding-top: 12vh; }
 
 h1 {
   margin: 0;
-  font-size: clamp(2.6rem, 9vw, 4.6rem);
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
   font-weight: 600;
   line-height: 1.02;
   letter-spacing: -0.02em;
 }
-
-h1 .ponto { color: var(--vermelho); }
 
 .cargo {
   margin: 0.75rem 0 0;
@@ -41,17 +107,10 @@ h1 .ponto { color: var(--vermelho); }
 .apresentacao {
   margin: 1.5rem 0 0;
   max-width: 50ch;
-  color: var(--texto);
-}
-
-.secao {
-  margin-top: 3.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--grafite);
 }
 
 h2 {
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -95,7 +154,7 @@ ul.contato {
 
 ul.contato li { margin-bottom: 0.6rem; }
 
-a {
+main a {
   color: var(--texto);
   text-decoration: underline;
   text-decoration-color: var(--vermelho);
@@ -103,7 +162,7 @@ a {
   text-decoration-thickness: 2px;
 }
 
-a:hover {
+main a:hover {
   color: var(--azul);
   text-decoration-color: var(--azul);
 }
@@ -118,4 +177,48 @@ footer {
   margin-top: 4rem;
   color: var(--texto-fraco);
   font-size: 0.9rem;
+}
+
+/* Telas estreitas: a barra lateral vira uma barra fixa no topo */
+
+@media (max-width: 820px) {
+  .lateral {
+    position: sticky;
+    inset: 0 auto auto;
+    width: auto;
+    padding: 0.4rem 16px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--grafite);
+    z-index: 1;
+  }
+
+  /* O nome já aparece grande logo abaixo; no celular o espaço fica para os links */
+  .marca { display: none; }
+
+  .lateral nav {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .lateral nav a {
+    flex: none;
+    padding: 0.5rem 0 0.7rem;
+    border-left: 0;
+    border-bottom: 2px solid transparent;
+    font-size: 0.9rem;
+  }
+
+  .lateral nav a[aria-current] { border-bottom-color: var(--vermelho); }
+
+  main {
+    margin-left: 0;
+    padding: 0 16px 10vh;
+  }
+
+  .secao { scroll-margin-top: 3.5rem; }
+
+  .secao-inicio { padding-top: 3rem; }
 }
