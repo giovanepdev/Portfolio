@@ -249,6 +249,14 @@ strong { color: var(--texto); font-weight: 600; }
   color: var(--vermelho);
 }
 
+.periodo {
+  margin: -0.5rem 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--azul);
+}
+
+.periodo:last-child { margin-bottom: 0; }
+
 .etiquetas {
   display: flex;
   flex-wrap: wrap;
