@@ -207,6 +207,9 @@ strong { color: var(--texto); font-weight: 600; }
   gap: 1.25rem;
 }
 
+/* Com quatro projetos, duas colunas largas cabem melhor numa tela que três estreitas */
+#projetos .grade { grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); }
+
 .cartao {
   padding: 1.5rem 1.75rem;
   background: var(--cartao);
