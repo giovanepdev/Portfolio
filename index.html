@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
   <!-- O ?v= força o navegador a baixar o CSS novo quando ele mudar -->
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
   <aside class="lateral">
@@ -85,21 +85,22 @@
       <h2>Projetos</h2>
       <div class="grade">
         <article class="cartao projeto">
+          <a class="previa" href="https://maxtec-catalogo-demo.onrender.com" tabindex="-1" aria-hidden="true">
+            <img src="previas/maxtec-catalogo.jpg" alt="" width="965" height="888" loading="lazy">
+          </a>
           <h3><a href="https://maxtec-catalogo-demo.onrender.com">Catálogo de produtos — MaxTec</a></h3>
           <p class="status">Em produção</p>
           <p>
-            Catálogo e controle de estoque para os canais Mercado Livre e TikTok Shop, com login e
-            acesso por papéis. Especifiquei a arquitetura — o estoque é calculado pelo histórico de
-            movimentações, não por um campo de quantidade — e a usabilidade, com uma interface
-            dedicada para quem cuida do estoque físico. Desenvolvimento assistido por IA a partir
-            das minhas especificações.
+            Catálogo e estoque para o Mercado Livre e o TikTok Shop, com login e acesso por
+            papéis. Especifiquei a arquitetura — o estoque sai do histórico de movimentações, não
+            de um campo de quantidade — e a interface para quem cuida do estoque físico.
+            Desenvolvimento assistido por IA.
           </p>
           <p class="stack">Spring Boot 3 · Thymeleaf · PostgreSQL · Flyway</p>
           <p class="nota-demo">
-            Entre como <strong>admin</strong> / <strong>demo2026</strong>. Dá para entrar também
-            como <strong>estoque</strong> ou <strong>visualizador</strong> e ver as permissões
-            mudando. Dados fictícios. O servidor é gratuito e hiberna: a primeira abertura pode
-            levar até 1 minuto.
+            Entre como <strong>admin</strong> / <strong>demo2026</strong> — ou como
+            <strong>estoque</strong> ou <strong>visualizador</strong>, para ver as permissões
+            mudando. Dados fictícios. O servidor hiberna: a primeira abertura leva até 1 minuto.
           </p>
           <a class="link-projeto" href="https://maxtec-catalogo-demo.onrender.com">Abrir a demonstração
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3Z"/><path d="M19 19H5V5h6V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-2v6Z"/></svg>
@@ -107,6 +108,9 @@
         </article>
 
         <article class="cartao projeto">
+          <a class="previa" href="https://gostinho-encomendas.netlify.app" tabindex="-1" aria-hidden="true">
+            <img src="previas/encomendas-cardapio.png" alt="" width="1042" height="932" loading="lazy">
+          </a>
           <h3><a href="https://gostinho-encomendas.netlify.app">Site de encomendas — Gostinho da Promessa</a></h3>
           <p class="status">Em produção</p>
           <p>
@@ -122,9 +126,10 @@
 
         <article class="cartao projeto">
           <h3><a href="https://github.com/giovanepdev/GostinhoDaPromessa">Sistema de estoque — Gostinho da Promessa</a></h3>
+          <p class="status">Em produção</p>
           <p>
             Sistema de controle de estoque para a confeitaria da minha irmã. Aprovado como
-            projeto final do curso no SENAI.
+            projeto final do curso no SENAI e <strong>em uso real desde setembro de 2026</strong>.
           </p>
           <p class="stack">Java · Servlets · MVC/DAO · MySQL · Docker · JavaScript</p>
           <a class="link-projeto" href="https://github.com/giovanepdev/GostinhoDaPromessa">Ver no GitHub

@@ -225,6 +225,25 @@ strong { color: var(--texto); font-weight: 600; }
   border-top: 3px solid var(--vermelho);
 }
 
+/* Prévia do projeto: mostra o topo da tela, que é a parte que explica o sistema */
+.previa {
+  display: block;
+  margin: -1.5rem -1.75rem 0.25rem;
+  border-bottom: 1px solid var(--grafite);
+  overflow: hidden;
+}
+
+.previa img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top;
+}
+
+.previa:hover img { opacity: 0.85; }
+
 .projeto h3 { margin: 0; }
 
 .projeto .stack { margin-top: auto; }
