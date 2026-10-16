@@ -327,9 +327,6 @@ strong { color: var(--texto); font-weight: 600; }
   flex: none;
 }
 
-/* O logo do Next.js é preto e sumiria no fundo escuro */
-.habilidades .icone-claro { filter: invert(1); }
-
 .habilidades .estudando {
   border-style: dashed;
   color: var(--texto-fraco);
