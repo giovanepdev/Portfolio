@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de produtos — MaxTec · Giovane Pereira</title>
+  <meta name="description" content="Catálogo e controle de estoque para Mercado Livre e TikTok Shop, em Spring Boot, PostgreSQL e Thymeleaf.">
+  <meta name="theme-color" content="#0B0B0E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=11">
+</head>
+<body class="pagina-detalhe">
+  <header class="topo">
+    <a class="marca" href="index.html">Giovane Pereira<span class="ponto">.</span></a>
+    <a class="voltar" href="index.html#projetos">← Voltar aos projetos</a>
+  </header>
+
+  <main class="detalhe">
+    <p class="status">Em produção</p>
+    <h1>Catálogo de produtos — MaxTec</h1>
+    <p class="apresentacao">
+      Catálogo e controle de estoque da loja onde trabalho, usado para abastecer os anúncios do
+      Mercado Livre e do TikTok Shop. Tem login e acesso por papéis: administrador, gerente de
+      estoque e visualizador.
+    </p>
+
+    <div class="acoes">
+      <a class="botao botao-principal" href="https://maxtec-catalogo-demo.onrender.com">Abrir a demonstração</a>
+    </div>
+
+    <p class="nota-demo">
+      Entre como <strong>admin</strong> / <strong>demo2026</strong> — ou como <strong>estoque</strong>
+      ou <strong>visualizador</strong>, para ver as permissões mudando. Dados fictícios. O servidor
+      hiberna: a primeira abertura leva até 1 minuto.
+    </p>
+
+    <h2>O que eu fiz</h2>
+    <p class="apresentacao">
+      Especifiquei a arquitetura, o modelo de dados e os requisitos de usabilidade. O
+      desenvolvimento foi assistido por IA a partir dessas especificações.
+    </p>
+    <ul class="lista">
+      <li>
+        <strong>O estoque sai do histórico de movimentações</strong>, não de um campo de
+        quantidade. Cada entrada e saída vira um registro, e o saldo é a soma deles. Assim dá para
+        responder quem mexeu, quando e quanto — e um erro se conserta corrigindo a movimentação,
+        sem reescrever o saldo na mão.
+      </li>
+      <li>
+        <strong>Uma interface separada para quem cuida do estoque físico.</strong> Quem conta
+        produto está em pé, no depósito, com o celular na mão e pouca familiaridade com sistema.
+        Essa tela tem busca por código de barras, botões grandes e um teclado numérico próprio.
+      </li>
+      <li>
+        <strong>Contagem de inventário com progresso.</strong> Contar 200 produtos não acaba numa
+        sentada, então a tela mostra quanto já foi contado e leva direto ao primeiro item que falta.
+      </li>
+    </ul>
+
+    <h2>As telas</h2>
+    <div class="galeria">
+      <figure>
+        <img src="previas/maxtec-catalogo.jpg" alt="Tela do catálogo, com busca e produtos agrupados por categoria" width="965" height="888" loading="lazy">
+        <figcaption>Catálogo, com busca por nome, SKU ou código de barras e os produtos agrupados por categoria.</figcaption>
+      </figure>
+      <figure>
+        <img src="previas/maxtec-estoque.jpg" alt="Tela de estoque, com busca e os últimos produtos movimentados" width="957" height="945" loading="lazy">
+        <figcaption>Estoque: busca, os últimos itens que você mexeu e os botões de retirar e adicionar.</figcaption>
+      </figure>
+      <figure>
+        <img src="previas/maxtec-teclado.jpg" alt="Teclado numérico grande para informar a quantidade" width="639" height="660" loading="lazy">
+        <figcaption>O teclado que aparece ao retirar ou adicionar. Botões grandes, para quem está no depósito com o celular na mão.</figcaption>
+      </figure>
+      <figure>
+        <img src="previas/maxtec-contagem.jpg" alt="Tela de contagem de inventário, com barra de progresso" width="916" height="945" loading="lazy">
+        <figcaption>Contagem de inventário: o progresso, o filtro por categoria e o atalho para o primeiro item não contado.</figcaption>
+      </figure>
+      <figure>
+        <img src="previas/maxtec-admin.jpg" alt="Painel de administração, com produtos, categorias, importação e usuários" width="942" height="951" loading="lazy">
+        <figcaption>Administração: produtos sem foto, sem preço ou sem categoria, importação por CSV e gestão de usuários.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Tecnologias</h2>
+    <p class="stack">Spring Boot 3 · Thymeleaf · PostgreSQL · Flyway · Spring Security · Docker</p>
+
+    <div class="acoes">
+      <a class="botao botao-principal" href="https://maxtec-catalogo-demo.onrender.com">Abrir a demonstração</a>
+      <a class="botao" href="index.html#projetos">Voltar aos projetos</a>
+    </div>
+  </main>
+</body>
+</html>

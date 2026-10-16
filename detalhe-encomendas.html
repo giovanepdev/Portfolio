@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site de encomendas — Gostinho da Promessa · Giovane Pereira</title>
+  <meta name="description" content="Hub de encomendas para uma confeitaria, com sinal de 30% por Pix, feito em Next.js e Supabase.">
+  <meta name="theme-color" content="#0B0B0E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=11">
+</head>
+<body class="pagina-detalhe">
+  <header class="topo">
+    <a class="marca" href="index.html">Giovane Pereira<span class="ponto">.</span></a>
+    <a class="voltar" href="index.html#projetos">← Voltar aos projetos</a>
+  </header>
+
+  <main class="detalhe">
+    <p class="status">Em produção</p>
+    <h1>Site de encomendas — Gostinho da Promessa</h1>
+    <p class="apresentacao">
+      Hub de encomendas da confeitaria da minha irmã. O cliente monta o pedido, escolhe a data e
+      paga 30% de sinal por Pix; o restante fica para a entrega. A página também reúne os itens
+      prontos no iFood e os contatos do Instagram e do WhatsApp.
+    </p>
+
+    <div class="acoes">
+      <a class="botao botao-principal" href="https://gostinho-encomendas.netlify.app">Abrir o site</a>
+    </div>
+
+    <h2>O que eu fiz</h2>
+    <p class="apresentacao">
+      Idealizei e conduzi o projeto: o fluxo do pedido, as regras de negócio e o que precisava ser
+      protegido. O desenvolvimento foi assistido por IA a partir dessas definições.
+    </p>
+    <ul class="lista">
+      <li>
+        <strong>O preço é calculado no servidor</strong>, nunca no navegador. O cliente envia só o
+        produto e a quantidade. Sem isso, qualquer pessoa editaria o HTML e mandaria um pedido de
+        brigadeiro a um centavo.
+      </li>
+      <li>
+        <strong>Sinal de 30% por Pix</strong>, com o restante pago na entrega. O resumo mostra os
+        dois valores separados, para o cliente não se assustar nem se confundir na hora de pagar.
+      </li>
+      <li>
+        <strong>Antecedência mínima de 2 dias</strong> e pedido mínimo por produto, porque a
+        produção é artesanal e tem limite.
+      </li>
+      <li>
+        <strong>Proteção dos dados dos clientes no banco (RLS).</strong> A chave do banco fica
+        exposta no navegador, então a regra de quem pode ler o quê precisa estar no próprio banco,
+        e não só na tela.
+      </li>
+    </ul>
+
+    <h2>As telas</h2>
+    <div class="galeria">
+      <figure>
+        <img src="previas/encomendas-cardapio.png" alt="Cardápio com os doces, preços e pedido mínimo" width="1042" height="932" loading="lazy">
+        <figcaption>O cardápio, com o passo a passo da encomenda, o pedido mínimo de cada item e o carrinho somando no rodapé.</figcaption>
+      </figure>
+      <figure>
+        <img src="previas/encomendas-pedido.png" alt="Tela de fechamento do pedido, com dados, entrega e resumo" width="1072" height="932" loading="lazy">
+        <figcaption>O fechamento: dados do cliente, data, forma de retirada e o resumo com o sinal de 30% separado do restante.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Tecnologias</h2>
+    <p class="stack">Next.js · TypeScript · Supabase (Postgres com RLS) · Tailwind · Netlify</p>
+
+    <div class="acoes">
+      <a class="botao botao-principal" href="https://gostinho-encomendas.netlify.app">Abrir o site</a>
+      <a class="botao" href="index.html#projetos">Voltar aos projetos</a>
+    </div>
+  </main>
+</body>
+</html>
